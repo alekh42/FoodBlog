@@ -9,4 +9,14 @@
 .thumbnail .caption-full {
     padding: 9px;
 }
-
+.jumbotron{
+	background-color:#d7ff0f !important;
+}
+/* #d7ff0f */
+.fontstyletoberoboto{
+	font-family: 'Roboto',sans-serif;
+}
+/* #faf1c3 */
+body{
+	background-color:#D4DCA9;
+}
