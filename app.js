@@ -6,7 +6,7 @@ var express     = require("express"),
     cookieParser = require("cookie-parser"),
     LocalStrategy = require("passport-local"),
     flash        = require("connect-flash"),
-    Campground  = require("./models/campground"),
+    Recipe  = require("./models/recipe"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     session = require("express-session"),
@@ -15,11 +15,11 @@ var express     = require("express"),
     
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
+    recipeRoutes = require("./routes/recipes"),
     indexRoutes      = require("./routes/index")
     
-//mongoose.connect("mongodb://localhost/food_blog_v1", {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connect("mongodb+srv://user:txabBqyx8g15pdap@cluster0.e1ssd.mongodb.net/food_blog?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex:true});
+mongoose.connect("mongodb://localhost/food_blog_v1", {useNewUrlParser: true, useUnifiedTopology: true});
+// mongoose.connect("mongodb+srv://user:txabBqyx8g15pdap@cluster0.e1ssd.mongodb.net/food_blog?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex:true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -51,8 +51,8 @@ app.use(function(req, res, next){
 
 
 app.use("/", indexRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/recipes", recipeRoutes);
+app.use("/recipes/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT || 3000, function(){
    console.log("The Server Has Started!");
