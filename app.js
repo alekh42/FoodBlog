@@ -18,8 +18,8 @@ var commentRoutes    = require("./routes/comments"),
     recipeRoutes = require("./routes/recipes"),
     indexRoutes      = require("./routes/index")
     
-mongoose.connect("mongodb://localhost/food_blog_v1", {useNewUrlParser: true, useUnifiedTopology: true});
-// mongoose.connect("mongodb+srv://user:txabBqyx8g15pdap@cluster0.e1ssd.mongodb.net/food_blog?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex:true});
+// mongoose.connect("mongodb://localhost/food_blog_v1", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://user:txabBqyx8g15pdap@cluster0.e1ssd.mongodb.net/food_blog?retryWrites=true&w=majority",{useNewUrlParser:true, useUnifiedTopology: true, useCreateIndex:true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
